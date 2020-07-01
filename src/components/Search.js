@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Search = (props) => {
+const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
 
   const handleSearchInputChanges = (event) => {
@@ -11,7 +11,7 @@ export const Search = (props) => {
     setSearchValue("");
   }
 
-  const callSearFunction = (event) => {
+  const callSearchFunction = (event) => {
     event.preventDefault();
     props.search(searchValue);
     resetInputField();
@@ -21,8 +21,10 @@ export const Search = (props) => {
     <div>
       <form className="search">
         <input value={searchValue} onChange={handleSearchInputChanges} type="text" />
-        <input onClick={callSearFunction} type="submit" value="SEARCH" />
+        <input onClick={callSearchFunction} type="submit" value="SEARCH" />
       </form>
     </div>
   );
 };
+
+export default Search;

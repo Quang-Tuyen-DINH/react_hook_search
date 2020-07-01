@@ -2,7 +2,7 @@ import React from 'react'
 
 const DEFAULT_PLACEHOLDER_IMAGE = "../assets/movie-1.jpg"
 
-export const Movie = ({movie}) => {
+const Movie = ({movie}) => {
   const poster = movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
   return (
     <div className="movie">
@@ -14,3 +14,5 @@ export const Movie = ({movie}) => {
     </div>
   );
 };
+
+export default Movie;

@@ -7,6 +7,37 @@ import movie_api from './data';
 
 const MOVIE_API_URL = movie_api;
 
+const initialState = {
+  loading: true,
+  movies: [],
+  errorMessage: null
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SEARCH_MOVIES_REQUEST":
+      return {
+        ...state,
+        loading: true,
+        errorMessage: null
+      };
+      case "SEARCH_MOVIES_SUCCESS":
+        return {
+          ...state,
+          loading: false,
+          movies: action.payload
+        };
+      case "SEARCH_MOVIES_FAILURE":
+        return {
+          ...state,
+          loading: false,
+          errorMessage: action
+        };
+      default:
+        return state;
+  }
+}
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -36,7 +67,7 @@ const App = () => {
           setLoading(false);
         }
       });
-  	};
+  };
 
     return (
      <div className="App">

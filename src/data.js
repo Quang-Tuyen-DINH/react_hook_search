@@ -1,4 +1,4 @@
-export const movie_api = {
+const movie_api = {
   Search: [
   {
   Title: "Iron Man",
@@ -74,3 +74,5 @@ export const movie_api = {
   totalResults: "9959",
   Response: "True"
   };
+
+  export default movie_api;
